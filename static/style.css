@@ -1,0 +1,11 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.tmpl{
+	margin-top: 42px;
+}
+.mui-active{
+	text-decoration: none;
+	color: blue;
+}
