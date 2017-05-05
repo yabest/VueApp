@@ -2,9 +2,14 @@
   <div id="app">
     <!-- 头部 -->
     <mt-header fixed title="传智播客11111"></mt-header>
+    <!-- 返回按钮-->
+    <div class="goback">
+      <a @click="goback" v-if="backShow">
+        <
+      </a>
+    </div>
     <!-- 路由占位 -->
     <router-view></router-view>
-
     <!-- 底部 -->
       <div id="btom">
         <ul>
@@ -30,7 +35,24 @@ export default {
   name: 'app',
   data(){
     return{
-      App:'app'
+      App:'app',
+      backShow : false
+    }
+  },
+  methods : {
+    goback(){
+      this.$router.go(-1)
+    }
+  },
+  watch:{
+    //坚挺路由
+    '$route':function(newValue,old){
+//      console.log(newValue.path)
+      if(newValue.path == '/Home'){
+        this.backShow = false
+      }else{
+        this.backShow = true
+      }
     }
   }
 }
@@ -54,5 +76,16 @@ export default {
   /*float: left;*/
   text-align: center;
   flex:1;
+}
+.goback{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+}
+.goback a{
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
 }
 </style>

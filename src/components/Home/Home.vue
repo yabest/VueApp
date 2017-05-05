@@ -1,12 +1,8 @@
 <template>
-	<div class="tmpl">		
+	<div class="tmpl">
 		<div class="box">
 		<!-- 轮播图 -->
-		<mt-swipe :auto="2000">
-			<mt-swipe-item v-for="(item,index) in imgList" :key="index">
-				<img class="imgs" :src="item.img" alt="">
-			</mt-swipe-item>			
-		</mt-swipe>
+    	<subimgauto :imgList="imgList"></subimgauto>
 
 		<!-- 九宫格 -->
 		<div class="nine">
@@ -49,13 +45,12 @@
 				</li>
 			</ul>
 		</div>
-			 
-
 		</div>
 	</div>
 </template>
 
 <script>
+import subimgauto from '../subcomps/subimgauto.vue'
 	export default{
 		data(){
 			return{
@@ -66,8 +61,11 @@
 					{img : 'https://www.boxuegu.com/web/images/130/mystudy_bg.png'}
 				]
 			}
-		}
-	}
+		},
+    components : {
+      subimgauto
+    }
+}
 </script>
 <style scoped>
 *{

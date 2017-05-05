@@ -6,9 +6,9 @@ import Shopping from '@/components/Shopping/shopping.vue'
 import news from '@/components/news/news.vue'
 import Setting from '@/components/Setting/setting.vue'
 import newsList from '@/components/news/newsList.vue'
+import newsListCon from '../components/news/newsListCon.vue'
 
-
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
 	linkActiveClass : 'mui-active',
@@ -42,6 +42,11 @@ export default new Router({
       path: '/newsList',
       name: 'newsList',
       component: newsList
+    },
+    {
+      path: '/newsListCon/:id',
+      name: 'newsListCon',
+      component: newsListCon
     }
   ]
 })
